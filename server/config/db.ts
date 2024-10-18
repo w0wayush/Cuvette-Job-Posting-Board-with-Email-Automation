@@ -3,7 +3,7 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
-const dbConnect = () => {
+export const dbConnect = () => {
   const mongoDBUrl = process.env.MONGODB_URL;
   if (!mongoDBUrl) {
     console.error("MONGODB_URL is not defined in the environment variables");
@@ -22,5 +22,3 @@ const dbConnect = () => {
       process.exit(1);
     });
 };
-
-export default dbConnect;

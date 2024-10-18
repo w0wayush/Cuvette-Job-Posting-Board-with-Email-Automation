@@ -7,13 +7,13 @@ export interface IUser extends Document {
   phone: number;
   employeeSize?: number;
   token?: string;
-  jobPosting?: mongoose.Types.ObjectId;
+  jobPostings?: mongoose.Types.ObjectId;
   isEmailVerified: boolean;
   isPhoneVerified: boolean;
 }
 
 const userSchema: Schema = new Schema({
-  firstName: {
+  name: {
     type: String,
     required: true,
     trim: true,
@@ -32,13 +32,17 @@ const userSchema: Schema = new Schema({
     type: Number,
     required: true,
   },
+  companyName: {
+    type: String,
+    required: true,
+  },
   employeeSize: {
     type: Number,
   },
   token: {
     type: String,
   },
-  jobPosting: {
+  jobPostings: {
     type: Schema.Types.ObjectId,
     ref: "Job",
   },
