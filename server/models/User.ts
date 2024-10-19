@@ -7,7 +7,7 @@ export interface IUser extends Document {
   phone: number;
   employeeSize?: number;
   token?: string;
-  jobPostings?: mongoose.Types.ObjectId;
+  jobPostings?: mongoose.Schema.Types.ObjectId[];
   isEmailVerified: boolean;
   isPhoneVerified: boolean;
 }
@@ -42,10 +42,12 @@ const userSchema: Schema = new Schema({
   token: {
     type: String,
   },
-  jobPostings: {
-    type: Schema.Types.ObjectId,
-    ref: "Job",
-  },
+  jobPostings: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Job",
+    },
+  ],
   isEmailVerified: {
     type: Boolean,
     default: false,

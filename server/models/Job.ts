@@ -12,7 +12,7 @@ const jobSchema = new Schema<IJobPosting>({
   },
   experienceLevel: {
     type: String,
-    enum: ["Entry Level", "Intermediate Level", "Mid Level"],
+    enum: ["Entry Level", "Intermediate Level", "Mid Level", "Senior Level"],
     required: true,
   },
   candidatesList: [
