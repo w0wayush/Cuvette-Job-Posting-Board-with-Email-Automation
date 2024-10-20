@@ -90,7 +90,7 @@ export default function verificationEmail(otp: string) {
   
   <body>
       <div class="container">
-          <img class="logo" src="[Your-Cuvette-Logo-URL]" alt="Cuvette Logo">
+          <img class="logo" src="https://cuvette.tech/assets/images/programPage/cuvetteLogo.png" alt="Cuvette Logo">
           <div class="message">Verify Your Email Address</div>
           
           <div class="verification-card">

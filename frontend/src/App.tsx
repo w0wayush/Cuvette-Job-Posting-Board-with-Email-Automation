@@ -12,6 +12,7 @@ import Navbar from "./components/Navbar";
 import { Signin } from "./components/Signin";
 import { setUser } from "./redux/slices/userSlice";
 import { toast } from "./hooks/use-toast";
+import JobPostingForm from "./components/JobPostingForm";
 
 const persistor = persistStore(store);
 
@@ -72,6 +73,10 @@ const App = () => {
           <Route
             path="/home"
             element={isVerified ? <Homepage /> : <Navigate to="/" />}
+          />
+          <Route
+            path="/job"
+            element={isVerified ? <JobPostingForm /> : <Navigate to="/" />}
           />
           <Route
             path="/signin"
