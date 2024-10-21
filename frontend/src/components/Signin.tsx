@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { Input } from "./Input";
 import { setUser, setError } from "../redux/slices/userSlice";
 import axios from "axios";
@@ -15,11 +15,7 @@ interface FormData {
 
 export const Signin = () => {
   const dispatch = useDispatch();
-  const error = useSelector((state) => state.user.error);
   const navigate = useNavigate();
-
-  const userData = useSelector((state) => state.user.userData);
-  //   console.log(userData);
 
   const [formData, setFormData] = useState<FormData>({
     email: "",

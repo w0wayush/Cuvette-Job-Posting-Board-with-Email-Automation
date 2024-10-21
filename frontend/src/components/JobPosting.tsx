@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { Button } from "../components/ui/button";
 import { Input } from "../components/ui/input";
 import { Textarea } from "../components/ui/textarea";
@@ -44,7 +43,6 @@ export const JobPosting: React.FC<JobPostingProps> = ({
   const [candidateEmail, setCandidateEmail] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const userData = useSelector((state: any) => state.user.userData);
-  const navigate = useNavigate();
 
   const handleAddCandidate = () => {
     if (candidateEmail && !candidates.includes(candidateEmail)) {

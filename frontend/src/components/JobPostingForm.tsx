@@ -66,6 +66,7 @@ const JobPostingForm = () => {
 
     try {
       const token = localStorage.getItem("authToken");
+      //@ts-ignore
       const response = await axios.post(
         `${import.meta.env.VITE_APP_BACKEND_URL}/api/v1/job/createJob`,
         formData,

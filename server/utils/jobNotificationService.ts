@@ -50,7 +50,7 @@ export class JobNotificationService {
         });
 
         results.push({ email, success: true });
-        console.log(`Job notification email sent successfully to ${email}`);
+        // console.log(`Job notification email sent successfully to ${email}`);
       } catch (error) {
         console.error(`Error sending job notification to ${email}:`, error);
         results.push({

@@ -30,7 +30,7 @@ const mailSender = async (
       html: body, // html body
     });
 
-    console.log("Message sent: %s", info.messageId);
+    // console.log("Message sent: %s", info.messageId);
     return {
       success: true,
       message: "Email sent successfully",

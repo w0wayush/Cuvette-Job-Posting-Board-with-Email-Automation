@@ -33,6 +33,7 @@ export const Homepage = () => {
 
       if (response.data.jobPostings) {
         // Store the job postings in reverse order
+        //@ts-ignore
         setJobPostings([...response.data.jobPostings].reverse());
       } else {
         toast({
@@ -93,6 +94,7 @@ export const Homepage = () => {
           ) : jobPostings.length > 0 ? (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mr-28">
               {jobPostings.map((job) => (
+                //@ts-ignore
                 <JobCard key={job._id} job={job} />
               ))}
             </div>

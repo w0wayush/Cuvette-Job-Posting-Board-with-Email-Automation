@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import Logo from "../assets/cuvette_logo.png";
@@ -8,7 +8,7 @@ import { TiArrowSortedDown } from "react-icons/ti";
 import { setUser } from "../redux/slices/userSlice";
 
 const Navbar = () => {
-  const userData = useSelector((state) => state.user.userData);
+  const userData = useSelector((state: any) => state.user.userData);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);

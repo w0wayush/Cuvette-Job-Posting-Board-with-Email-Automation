@@ -1,6 +1,6 @@
-import React from "react";
 import { FaBriefcase, FaUserTie, FaUsers, FaCalendarAlt } from "react-icons/fa";
 
+//@ts-ignore
 export const JobCard = ({ job }) => {
   return (
     <div className="bg-white border border-gray-200 rounded-lg overflow-hidden hover:shadow-md transition-shadow duration-300">
@@ -24,7 +24,7 @@ export const JobCard = ({ job }) => {
             <h4 className="font-semibold text-gray-700">Candidates:</h4>
           </div>
           <ul className="pl-6 max-h-24 overflow-y-auto">
-            {job.candidatesList.map((email, index) => (
+            {job.candidatesList.map((email: any, index: any) => (
               <li
                 key={index}
                 className="text-sm text-gray-600 mb-1 flex items-center"

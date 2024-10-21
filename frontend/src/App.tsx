@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
@@ -18,9 +18,14 @@ const persistor = persistStore(store);
 
 const App = () => {
   const dispatch = useDispatch();
-  const userData = useSelector((state) => state.user.userData);
-  const isEmailVerified = useSelector((state) => state.user.isEmailVerified);
-  const isPhoneVerified = useSelector((state) => state.user.isPhoneVerified);
+  //@ts-ignore
+  const userData = useSelector((state: any) => state.user.userData);
+  const isEmailVerified = useSelector(
+    (state: any) => state.user.isEmailVerified
+  );
+  const isPhoneVerified = useSelector(
+    (state: any) => state.user.isPhoneVerified
+  );
   const isVerified = isEmailVerified && isPhoneVerified;
 
   useEffect(() => {
@@ -49,6 +54,7 @@ const App = () => {
         }
       } catch (error) {
         console.log("Error fetching auth status", error);
+        //@ts-ignore
         dispatch(setUser({ data: null }));
         localStorage.removeItem("authToken");
       }

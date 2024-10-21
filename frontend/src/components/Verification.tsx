@@ -20,7 +20,7 @@ export const Verification = () => {
   const [phoneOTP, setPhoneOTP] = useState("");
   const [emailVerify, setEmailVerify] = useState(false);
   const [phoneVerify, setPhoneVerify] = useState(false);
-  const userData = useSelector((state) => state.user.userData);
+  const userData = useSelector((state: any) => state.user.userData);
 
   const handlePhoneVerification = async () => {
     try {
@@ -35,8 +35,8 @@ export const Verification = () => {
         setPhoneVerify(true);
       }
     } catch (error) {
-      const errorMessage =
-        error.response?.data?.message || "Phone verification failed";
+      //@ts-ignore
+      const errorMessage = error.response?.data?.message || "Phone verification failed";
 
       // Show toast with the error message
       toast({
@@ -62,8 +62,8 @@ export const Verification = () => {
         setEmailVerify(true);
       }
     } catch (error) {
-      const errorMessage =
-        error.response?.data?.message || "Email verification failed";
+      //@ts-ignore
+      const errorMessage =error.response?.data?.message || "Email verification failed";
       toast({
         variant: "destructive",
         description: errorMessage,

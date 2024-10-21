@@ -12,7 +12,7 @@ export const userRoute = async (req: Request, res: Response): Promise<void> => {
 
     // Split to get the token
     const token = authHeader.split(" ")[1];
-    console.log("User route token - ", token);
+    // console.log("User route token - ", token);
 
     if (!token) {
       res.status(403).json({ message: "User not logged in" });

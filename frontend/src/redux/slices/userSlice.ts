@@ -56,6 +56,7 @@ export const userSlice = createSlice({
     setError: (state, action: PayloadAction<string | null>) => {
       state.error = action.payload;
     },
+    //@ts-ignore
     logout: (state) => {
       return initialState;
     },

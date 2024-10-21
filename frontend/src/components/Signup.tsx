@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { Input } from "./Input";
 import { setUser, setError } from "../redux/slices/userSlice";
 import axios from "axios";
@@ -23,12 +23,8 @@ interface FormData {
 
 export const Signup = () => {
   const dispatch = useDispatch();
-  const error = useSelector((state) => state.user.error);
   const [showVerification, setShowVerification] = useState(false);
   const navigate = useNavigate();
-
-  const userData = useSelector((state) => state.user.userData);
-  //   console.log(userData);
 
   const [formData, setFormData] = useState<FormData>({
     name: "",
@@ -48,7 +44,7 @@ export const Signup = () => {
     }));
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: any) => {
     e.preventDefault();
     try {
       // Ensure phone is a valid number and concatenate +91
@@ -84,6 +80,7 @@ export const Signup = () => {
       //   console.log(response.data);
     } catch (error) {
       // Handle the error and display an appropriate message
+      //@ts-ignore
       const errorMessage = error.response?.data?.message || "Signup failed";
 
       // Show toast with the error message

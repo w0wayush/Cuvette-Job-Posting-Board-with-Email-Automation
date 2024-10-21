@@ -41,10 +41,10 @@ export const auth = async (
     try {
       // Verifying the JWT using the secret key stored in environment variables
       const decode = jwt.verify(token, secret) as { userId: string }; // Cast to a more specific type if known
-      console.log("Decoded token:", decode);
+      // console.log("Decoded token:", decode);
       const userData = await User.findById(decode.userId);
 
-      console.log("User data:", userData);
+      // console.log("User data:", userData);
 
       // Store the decoded JWT payload in the request object for further use
       // @ts-ignore
