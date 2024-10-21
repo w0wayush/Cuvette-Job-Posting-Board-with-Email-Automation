@@ -1,15 +1,25 @@
 import express from "express";
-import cors from "cors";
+import cors, { CorsOptions } from "cors";
 import cookieParser from "cookie-parser";
 import { authRoutes } from "./routes/auth.js";
 import { jobRoutes } from "./routes/job.js";
 import { dbConnect } from "./config/db.js";
 import { userRoutes } from "./routes/user.js";
 
-const app = express();
-const port = 3000;
+const applicationBaseUrl = process.env.APPLICATION_BASE_URL || "";
 
-app.use(cors());
+const app = express();
+const corsOptions: CorsOptions = {
+  origin: [applicationBaseUrl, "http://localhost:3000"],
+  credentials: true,
+  optionsSuccessStatus: 200,
+  allowedHeaders: ["Content-Type", "Authorization"],
+  exposedHeaders: ["Content-Range", "X-Content-Range"],
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+};
+const port = process.env.PORT || 4000;
+
+app.use(cors(corsOptions));
 app.use(cookieParser());
 app.use(express.json());
 app.use("/api/v1/auth", authRoutes);
