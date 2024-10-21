@@ -16,13 +16,10 @@ const Navbar = () => {
   const handleLogout = async () => {
     try {
       setIsLoading(true);
-
       // Clear local storage
       localStorage.removeItem("authToken");
-
       // Clear user data from Redux store
       dispatch(setUser(null));
-
       // Navigate to signup page
       navigate("/signup");
     } catch (error) {
@@ -43,7 +40,7 @@ const Navbar = () => {
       />
       <div className="text-[#576474] flex items-center font-semibold cursor-pointer">
         Contact
-        {userData && (
+        {userData ? (
           <div className="relative group ml-5 flex items-center">
             {/* Profile Info */}
             <div className="border-2 px-2 py-1 flex items-center gap-3">
@@ -51,7 +48,6 @@ const Navbar = () => {
               {userData.name}
               <TiArrowSortedDown size={20} />
             </div>
-
             {/* Logout Button */}
             <div className="absolute right-5 -top-2 mt-10 w-32 bg-white border shadow-lg hidden group-hover:block">
               <div>
@@ -70,7 +66,7 @@ const Navbar = () => {
               </div>
             </div>
           </div>
-        )}
+        ) : null}
       </div>
     </div>
   );
