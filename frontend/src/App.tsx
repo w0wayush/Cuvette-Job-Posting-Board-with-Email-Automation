@@ -74,15 +74,19 @@ const App = () => {
         <Routes>
           <Route
             path="/"
-            element={isVerified ? <Navigate to="/home" /> : <Signup />}
+            element={
+              isVerified ? <Navigate to="/home" /> : <Navigate to="/signup" />
+            }
           />
           <Route
             path="/home"
-            element={isVerified ? <Homepage /> : <Navigate to="/" />}
+            element={isVerified ? <Homepage /> : <Navigate to="/signup" />}
           />
           <Route
             path="/job"
-            element={isVerified ? <JobPostingForm /> : <Navigate to="/" />}
+            element={
+              isVerified ? <JobPostingForm /> : <Navigate to="/signup" />
+            }
           />
           <Route
             path="/signin"
@@ -94,7 +98,7 @@ const App = () => {
           />
           <Route
             path="*"
-            element={<Navigate to={isVerified ? "/home" : "/"} />}
+            element={<Navigate to={isVerified ? "/home" : "/signup"} />}
           />
         </Routes>
       </div>

@@ -10,7 +10,7 @@ const applicationBaseUrl = process.env.APPLICATION_BASE_URL || "";
 
 const app = express();
 const corsOptions: CorsOptions = {
-  origin: [applicationBaseUrl, "http://localhost:3000"],
+  origin: [applicationBaseUrl, "http://localhost:5173"],
   credentials: true,
   optionsSuccessStatus: 200,
   allowedHeaders: ["Content-Type", "Authorization"],
